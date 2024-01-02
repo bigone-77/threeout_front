@@ -10,6 +10,7 @@ import RecordSticker from "./../pages/Home/RecordSticker";
 import RecordText from "./../pages/Home/RecordText";
 import DetailRecord from "./../pages/Home/DetailRecord";
 import Ranking from "./../pages/Ranking";
+import DangerPage from "../pages/danger/page";
 
 const Routes = () => {
   return (
@@ -36,7 +37,10 @@ const Routes = () => {
           path="/main/friendProfile/detail/:id"
           element={<DetailRecord />}
         />
-        <Route path="/ranking/:id" element={<Ranking />} />
+        <Route path="/ranking" element={<Ranking />} />
+      </ReactRouters>
+      <ReactRouters>
+        <Route path="/danger" element={<DangerPage />} />
       </ReactRouters>
     </>
   );

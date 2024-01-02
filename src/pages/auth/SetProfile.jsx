@@ -4,13 +4,7 @@ import { useForm } from "react-hook-form";
 import { emailState, passwordState } from "../../recoil/atom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import {
-  Button,
-  Wrapper,
-  Label,
-  InputBox,
-  ErrorText,
-} from "../../styles/Common";
+import { Button, Label, InputBox, ErrorText } from "../../styles/Common";
 import ImageUpload from "../../components/ImageUpload";
 import axios from "axios";
 
@@ -49,7 +43,7 @@ export default function SetProfile() {
     setState(data);
     console.log(data); // 수정된 부분: 직접 받아온 데이터 출력
     axios
-      .post("http://localhost:8080/3out/signup", {
+      .post("http://43.201.170.138:8080/3out/signup", {
         email: email,
         password: password,
         nickname: data.nickname,
@@ -65,7 +59,7 @@ export default function SetProfile() {
   };
 
   return (
-    <Wrapper onSubmit={handleSubmit(onSubmit)}>
+    <FormWrapper onSubmit={handleSubmit(onSubmit)}>
       <ImageUpload onFileUrlChange={handleFileUrlChange} value={profile_img} />
       <Label>나의 별명</Label>
       <InputBox
@@ -86,6 +80,12 @@ export default function SetProfile() {
       <Button color="#71CACC" margintop="50px" type="submit">
         확인
       </Button>
-    </Wrapper>
+    </FormWrapper>
   );
 }
+
+const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;

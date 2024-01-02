@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "./../../styles/Common";
 import { emotionState } from "../../recoil/atom";
@@ -8,10 +8,29 @@ import happy from "../../assets/image/happy.png";
 import sad from "../../assets/image/sad.png";
 import warning from "../../assets/image/warning.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function FriendProfile() {
   const navigate = useNavigate();
   const [selectedEmotion, setSelectedEmotion] = useRecoilState(emotionState);
+  const token = localStorage.getItem("token");
+  const [friendProfile, setFriendProfile] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://43.201.170.138:8080/3out/home", {
+        headers: {
+          Authorization: `Bearer ${token}`, // 토큰을 헤더에 추가
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        setFriendProfile(response.result);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   const addRecord = () => {
     navigate("/main/friendProfile/sticker/1");

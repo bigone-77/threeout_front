@@ -11,12 +11,14 @@ export default function SignIn() {
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:8080/3out/signin", {
+      .post("http://43.201.170.138:8080/3out/signin", {
         email: email,
         password: password,
       })
       .then(function (response) {
         console.log(response);
+        const token = response.data.result.accessToken;
+        localStorage.setItem("token", token);
         navigate("/main");
       })
       .catch(function (error) {
