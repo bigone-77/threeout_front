@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import { styled } from "styled-components";
 
 export default function Login() {
   const [state, setState] = useState({});
   const { register, handleSubmit } = useForm();
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     setState(data);
     console.log(data); // 수정된 부분: 직접 받아온 데이터 출력
+    navigate('/auth/signin')
   };
 
   return (

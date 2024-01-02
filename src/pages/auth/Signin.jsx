@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import { styled } from "styled-components";
 
 export default function Login() {
   const [state, setState] = useState({});
   const { register, handleSubmit } = useForm();
 
+  const navigate = useNavigate();
+
+
   const onSubmit = (data) => {
     setState(data);
     console.log(data); // 수정된 부분: 직접 받아온 데이터 출력
+    navigate('/auth/setProfile')
   };
 
   return (
@@ -49,6 +54,17 @@ const Wrapper = styled.form`
 `;
 const Label = styled.div``;
 const InputBox = styled.input`
-  margin-bottom: 10px;
+  width: 308px;
+  height: 54px;
+  margin-bottom: 32px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  padding: 12px;
 `;
-const SubmitBtn = styled.button``;
+const SubmitBtn = styled.button`
+  width: 308px;
+  height: 54px;
+  border: none;
+  border-radius: 10px;
+  background: #848484;
+`;
