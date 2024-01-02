@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styled, { css } from "styled-components";
+import {
+  Button,
+  Wrapper,
+  Label,
+  InputBox,
+  ErrorText,
+} from "../../styles/Common";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -79,51 +86,9 @@ export default function Login() {
         <ErrorText>{errors.passwordConfirm.message}</ErrorText>
       )}
 
-      <SubmitBtn type="submit">다음 단계로 이동</SubmitBtn>
+      <Button color="#848484" type="submit">
+        다음 단계로 이동
+      </Button>
     </Wrapper>
   );
 }
-
-const Wrapper = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-const Label = styled.div`
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 42px;
-  margin-bottom: 16px;
-
-  ${(props) =>
-    props.first &&
-    css`
-      margin-top: 0;
-    `}
-`;
-const InputBox = styled.input`
-  width: 308px;
-  height: 54px;
-  border-radius: 10px;
-  border: 1px solid #000;
-  font-size: 15px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  padding: 12px;
-`;
-const ErrorText = styled.div`
-  font-size: 12px;
-  color: red;
-  margin: 0 0 12px 6px;
-`;
-const SubmitBtn = styled.button`
-  width: 308px;
-  height: 54px;
-  border: none;
-  border-radius: 10px;
-  background: #848484;
-  color: #fff;
-  text-align: center;
-  font-size: 20px;
-  margin-top: 50px;
-`;

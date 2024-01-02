@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { styled } from "styled-components";
+import styled from "styled-components";
+import {
+  Button,
+  Wrapper,
+  Label,
+  InputBox,
+  ErrorText,
+} from "../../styles/Common";
 import ImageUpload from "../../components/ImageUpload";
 
 export default function SetProfile() {
@@ -57,45 +64,9 @@ export default function SetProfile() {
       />
       {errors.promise && <ErrorText>{errors.promise.message}</ErrorText>}
 
-      <SubmitBtn type="submit">확인</SubmitBtn>
+      <Button color="#71CACC" type="submit">
+        확인
+      </Button>
     </Wrapper>
   );
 }
-
-const Wrapper = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-const Label = styled.div`
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 42px;
-  margin-bottom: 16px;
-`;
-const InputBox = styled.input`
-  width: 308px;
-  height: 54px;
-  border-radius: 10px;
-  border: 1px solid #000;
-  font-size: 15px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  padding: 12px;
-`;
-const ErrorText = styled.div`
-  font-size: 12px;
-  color: red;
-  margin: 0 0 12px 6px;
-`;
-const SubmitBtn = styled.button`
-  width: 308px;
-  height: 54px;
-  border: none;
-  border-radius: 10px;
-  background: #71cacc;
-  color: #fff;
-  text-align: center;
-  font-size: 20px;
-  margin-top: 32px;
-`;

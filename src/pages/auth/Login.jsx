@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Button, Wrapper, InputBox } from "../../styles/Common";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -34,6 +35,7 @@ export default function Login() {
           name="email"
           placeholder="이메일을 입력해주세요"
           {...register("email")}
+          addMargin
         />
         <InputBox
           name="password"
@@ -42,18 +44,17 @@ export default function Login() {
           {...register("password")}
         />
 
-        <LoginBtn type="submit">로그인</LoginBtn>
-        <SigninBtn onClick={goToSign}>회원가입</SigninBtn>
+        <Button type="submit" color="#000">
+          로그인
+        </Button>
+        <Button onClick={goToSign} color="#848484">
+          회원가입
+        </Button>
       </Form>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
 const Title = styled.div`
   font-size: 24px;
   font-weight: 700;
@@ -65,34 +66,4 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-const InputBox = styled.input`
-  width: 308px;
-  height: 54px;
-  margin-bottom: 32px;
-  border-radius: 10px;
-  border: 1px solid #000;
-  padding: 12px;
-`;
-
-const LoginBtn = styled.button`
-  width: 308px;
-  height: 54px;
-  border: none;
-  border-radius: 10px;
-  background: #170a0a;
-  color: #fff;
-  margin: 12px 0;
-  font-size: 20px;
-  font-weight: 400;
-`;
-const SigninBtn = styled.button`
-  width: 308px;
-  height: 54px;
-  border: none;
-  border-radius: 10px;
-  background: #848484;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 400;
 `;
