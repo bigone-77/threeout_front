@@ -52,7 +52,7 @@ export default function AddFriendProfile() {
         name="friendNickname"
         placeholder="친구의 별명을 알려주세요"
         {...register("friendNickname", { required: "필수입력사항입니다" })}
-        marginTop="64px"
+        margintop="64px"
       />
       {errors.friendNickname && (
         <ErrorText>{errors.friendNickname.message}</ErrorText>
@@ -62,7 +62,7 @@ export default function AddFriendProfile() {
         name="relation"
         placeholder="친구와 나의 관계/상태를 적어주세요"
         {...register("relation", { required: "필수입력사항입니다." })}
-        marginTop="32px"
+        margintop="32px"
       />
       {errors.relation && <ErrorText>{errors.relation.message}</ErrorText>}
 

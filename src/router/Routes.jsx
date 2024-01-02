@@ -1,7 +1,7 @@
 import { Route, Routes as ReactRouters } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import Login from "../pages/auth/Login";
-import SignIn from "../pages/auth/SignIn";
+import SignUp from "../pages/auth/SignUp";
 import Main from "./../pages/Home/Main";
 import SetProfile from "../pages/auth/SetProfile";
 import AddFriendProfile from "./../pages/Home/AddFriendProfile";
@@ -17,7 +17,7 @@ const Routes = () => {
       <ReactRouters>
         <Route path="/auth">
           <Route path="login" element={<Login />} />
-          <Route path="signIn" element={<SignIn />} />
+          <Route path="signUp" element={<SignUp />} />
           <Route path="setProfile" element={<SetProfile />} />
         </Route>
       </ReactRouters>

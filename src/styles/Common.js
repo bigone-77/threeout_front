@@ -10,7 +10,7 @@ export const Button = styled.button`
   text-align: center;
   font-size: 20px;
   font-weight: 400;
-  margin-top: ${(props) => props.marginTop || "22px"};
+  margin-top: ${(props) => props.margintop || "22px"};
 `;
 
 export const Wrapper = styled.form`
@@ -32,8 +32,7 @@ export const InputBox = styled.input`
   font-size: 15px;
   font-weight: 400;
   padding: 12px;
-
-  margin-top: ${(props) => props.marginTop || "8px"};
+  margin-top: ${(props) => props.margintop || "8px"};
 `;
 export const ErrorText = styled.div`
   font-size: 12px;
