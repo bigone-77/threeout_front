@@ -64,7 +64,7 @@ export default function SetProfile() {
       />
       {errors.promise && <ErrorText>{errors.promise.message}</ErrorText>}
 
-      <Button color="#71CACC" type="submit">
+      <Button color="#71CACC" marginTop="50px" type="submit">
         확인
       </Button>
     </Wrapper>

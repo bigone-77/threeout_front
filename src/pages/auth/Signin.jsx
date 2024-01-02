@@ -86,7 +86,7 @@ export default function Login() {
         <ErrorText>{errors.passwordConfirm.message}</ErrorText>
       )}
 
-      <Button color="#848484" type="submit">
+      <Button color="#848484" marginTop="100px" type="submit">
         다음 단계로 이동
       </Button>
     </Wrapper>

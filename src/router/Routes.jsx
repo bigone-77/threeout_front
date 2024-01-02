@@ -2,6 +2,7 @@ import { Route, Routes as ReactRouters } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import Login from "../pages/auth/Login";
 import SignIn from "../pages/auth/SignIn";
+import Main from "./../pages/Home/Main";
 import SetProfile from "../pages/auth/SetProfile";
 import AddFriendProfile from "./../pages/Home/AddFriendProfile";
 import FriendProfile from "./../pages/Home/FriendProfile";
@@ -13,14 +14,17 @@ import Ranking from "./../pages/Ranking";
 const Routes = () => {
   return (
     <>
-      <ReactRouters path="auth">
-        <Route path="/login" element={<Login />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/setProfile" element={<SetProfile />} />
+      <ReactRouters>
+        <Route path="/auth">
+          <Route path="login" element={<Login />} />
+          <Route path="signIn" element={<SignIn />} />
+          <Route path="setProfile" element={<SetProfile />} />
+        </Route>
       </ReactRouters>
 
       <ReactRouters>
         <Route path="/" element={<MainPage />} />
+        <Route path="/main" element={<Main />} />
         <Route path="/main/addFriendProfile" element={<AddFriendProfile />} />
         <Route path="/main/FriendProfile/:id" element={<FriendProfile />} />
         <Route
