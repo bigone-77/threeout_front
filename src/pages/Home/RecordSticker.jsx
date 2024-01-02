@@ -1,12 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./../../styles/Common";
+import { emotionState } from "../../recoil/atom";
+import { useRecoilState } from "recoil";
 import impressed from "../../assets/image/impressed.png";
 import happy from "../../assets/image/happy.png";
 import sad from "../../assets/image/sad.png";
 import warning from "../../assets/image/warning.png";
 
 export default function RecordSticker() {
+  const navigate = useNavigate();
+  const [selectedEmotion, setSelectedEmotion] = useRecoilState(emotionState);
+
+  const moveToText = () => {
+    navigate("/main/friendProfile/text/1");
+  };
+
+  const handleEmotionClick = (emotion) => {
+    setSelectedEmotion(emotion);
+    console.log(emotion);
+  };
+
   return (
     <Wrapper>
       <Title>
@@ -15,24 +30,38 @@ export default function RecordSticker() {
         오늘 친구에게 느낀 감정을 골라보세요
       </Title>
       <Container>
-        <ButtonWrapper>
+        <ButtonWrapper
+          onClick={() => handleEmotionClick("impressed")}
+          isSelected={selectedEmotion === "impressed"}
+        >
           <EmotionImg image={impressed} />
           <EmotionTxt>감동</EmotionTxt>
         </ButtonWrapper>
-        <ButtonWrapper>
+        <ButtonWrapper
+          onClick={() => handleEmotionClick("happy")}
+          isSelected={selectedEmotion === "happy"}
+        >
           <EmotionImg image={happy} />
           <EmotionTxt>신남</EmotionTxt>
         </ButtonWrapper>
-        <ButtonWrapper>
+        <ButtonWrapper
+          onClick={() => handleEmotionClick("warning")}
+          isSelected={selectedEmotion === "warning"}
+        >
           <EmotionImg image={warning} />
           <EmotionTxt>경고</EmotionTxt>
         </ButtonWrapper>
-        <ButtonWrapper>
+        <ButtonWrapper
+          onClick={() => handleEmotionClick("sad")}
+          isSelected={selectedEmotion === "sad"}
+        >
           <EmotionImg image={sad} />
           <EmotionTxt>서운함</EmotionTxt>
         </ButtonWrapper>
       </Container>
-      <Button color="#71CACC">다음</Button>
+      <Button color="#71CACC" onClick={moveToText}>
+        다음
+      </Button>
     </Wrapper>
   );
 }
@@ -64,7 +93,7 @@ const ButtonWrapper = styled.div`
   width: 150px;
   height: 150px;
   border-radius: 20px;
-  background: #eee;
+  background: ${({ isSelected }) => (isSelected ? "#b2e9eb" : "#eee")};
 `;
 const EmotionImg = ({ image }) => (
   <div

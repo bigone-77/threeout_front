@@ -26,17 +26,17 @@ const Routes = () => {
         <Route path="/" element={<MainPage />} />
         <Route path="/main" element={<Main />} />
         <Route path="/main/addFriendProfile" element={<AddFriendProfile />} />
-        <Route path="/main/FriendProfile/:id" element={<FriendProfile />} />
+        <Route path="/main/friendProfile/:id" element={<FriendProfile />} />
         <Route
-          path="/main/FriendProfile/Sticker/:id"
+          path="/main/friendProfile/sticker/:id"
           element={<RecordSticker />}
         />
-        <Route path="/main/FriendProfile/Text/:id" element={<RecordText />} />
+        <Route path="/main/friendProfile/text/:id" element={<RecordText />} />
         <Route
-          path="/main/FriendProfile/Detail/:id"
+          path="/main/friendProfile/detail/:id"
           element={<DetailRecord />}
         />
-        <Route path="/Ranking/:id" element={<Ranking />} />
+        <Route path="/ranking/:id" element={<Ranking />} />
       </ReactRouters>
     </>
   );

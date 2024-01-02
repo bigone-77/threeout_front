@@ -1,8 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "./../../styles/Common";
+import { emotionState } from "../../recoil/atom";
+import { useRecoilState } from "recoil";
+import impressed from "../../assets/image/impressed.png";
+import happy from "../../assets/image/happy.png";
+import sad from "../../assets/image/sad.png";
+import warning from "../../assets/image/warning.png";
+import { useNavigate } from "react-router-dom";
 
 export default function FriendProfile() {
+  const navigate = useNavigate();
+  const [selectedEmotion, setSelectedEmotion] = useRecoilState(emotionState);
+
+  const addRecord = () => {
+    navigate("/main/friendProfile/sticker/1");
+  };
+
+  const handleEmotionClick = (emotion) => {
+    setSelectedEmotion(emotion);
+    console.log(emotion);
+    navigate("/main/friendProfile/detail/1");
+  };
+
   return (
     <Wrapper>
       <ProfileWrapper>
@@ -13,24 +33,26 @@ export default function FriendProfile() {
       <Container>
         <Title>친구와 나의 관계</Title>
         <ListWrapper>
-          <ListItem>
-            <Emotion />
+          <ListItem onClick={() => handleEmotionClick("impressed")}>
+            <EmotionImg image={impressed} />
             <EmotionTxt>3개</EmotionTxt>
           </ListItem>
-          <ListItem>
-            <Emotion />
+          <ListItem onClick={() => handleEmotionClick("happy")}>
+            <EmotionImg image={happy} />
             <EmotionTxt>5개</EmotionTxt>
           </ListItem>
-          <ListItem>
-            <Emotion />
+          <ListItem onClick={() => handleEmotionClick("warning")}>
+            <EmotionImg image={warning} />
             <EmotionTxt>1개</EmotionTxt>
           </ListItem>
-          <ListItem>
-            <Emotion />
+          <ListItem onClick={() => handleEmotionClick("sad")}>
+            <EmotionImg image={sad} />
             <EmotionTxt>0개</EmotionTxt>
           </ListItem>
         </ListWrapper>
-        <Button color="#71CACC">기록추가하기</Button>
+        <Button color="#71CACC" onClick={addRecord}>
+          기록추가하기
+        </Button>
       </Container>
     </Wrapper>
   );
@@ -79,6 +101,7 @@ const Container = styled.div`
   box-shadow: 0 -2px 4px rgba(101, 101, 101, 0.1);
   margin: 20px;
   padding: 20px;
+  border-radius: 20px;
 `;
 const Title = styled.div`
   font-size: 20px;
@@ -95,12 +118,18 @@ const ListItem = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Emotion = styled.div`
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background-color: #e3e3e3;
-`;
+const EmotionImg = ({ image }) => (
+  <div
+    style={{
+      width: "65px",
+      height: "65px",
+      objectFit: "cover",
+      backgroundImage: `url(${image})`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+    }}
+  />
+);
 const EmotionTxt = styled.div`
   text-align: center;
   margin-top: 5px;
