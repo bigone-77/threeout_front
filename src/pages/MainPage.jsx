@@ -1,7 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { Button } from "../styles/Common";
 
-const MainPage = () => {
-  return <div>ddddddd</div>;
-};
+export default function MainPage() {
+  const navigate = useNavigate();
 
-export default MainPage;
+  const goToLogin = () => {
+    navigate("/auth/login");
+  };
+
+  return (
+    <Button color="#71CACC" onClick={goToLogin}>
+      시작하기
+    </Button>
+  );
+}
