@@ -5,7 +5,12 @@ import { useForm } from "react-hook-form";
 
 export default function Login() {
   const [info, setInfo] = useState({});
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
@@ -14,7 +19,7 @@ export default function Login() {
   };
 
   const goToSign = () => {
-    navigate("/signIn");
+    navigate("/auth/signIn");
   };
 
   return (

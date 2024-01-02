@@ -33,6 +33,11 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+      passwordConfirm: "",
+    },
     mode: "onChange",
     reValidateMode: "onChange",
     resolver: yupResolver(validationSchema), // Use yup resolver for validation
@@ -41,7 +46,7 @@ export default function Login() {
   const onSubmit = (data) => {
     setInfo(data);
     console.log(data);
-    navigate("/profile");
+    navigate("/auth/setProfile");
   };
 
   return (
@@ -88,7 +93,7 @@ const Label = styled.div`
   font-size: 24px;
   font-weight: 700;
   margin-top: 42px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 
   ${(props) =>
     props.first &&
@@ -120,5 +125,5 @@ const SubmitBtn = styled.button`
   color: #fff;
   text-align: center;
   font-size: 20px;
-  margin-top: 32px;
+  margin-top: 50px;
 `;
