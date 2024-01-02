@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styled, { css } from "styled-components";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -26,6 +27,7 @@ const validationSchema = yup.object().shape({
 
 export default function Login() {
   const [info, setInfo] = useState({});
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -39,6 +41,7 @@ export default function Login() {
   const onSubmit = (data) => {
     setInfo(data);
     console.log(data);
+    navigate("/profile");
   };
 
   return (

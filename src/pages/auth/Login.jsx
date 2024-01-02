@@ -14,7 +14,7 @@ export default function Login() {
   };
 
   const goToSign = () => {
-    navigate("/signin");
+    navigate("/signIn");
   };
 
   return (
@@ -78,6 +78,8 @@ const LoginBtn = styled.button`
   background: #170a0a;
   color: #fff;
   margin: 12px 0;
+  font-size: 20px;
+  font-weight: 400;
 `;
 const SigninBtn = styled.button`
   width: 308px;
@@ -85,4 +87,7 @@ const SigninBtn = styled.button`
   border: none;
   border-radius: 10px;
   background: #848484;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
 `;
