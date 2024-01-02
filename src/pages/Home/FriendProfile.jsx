@@ -9,6 +9,7 @@ import sad from "../../assets/image/sad.png";
 import warning from "../../assets/image/warning.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Footer from "../../components/Footer";
 
 export default function FriendProfile() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ export default function FriendProfile() {
   return (
     <Wrapper>
       <ProfileWrapper>
-        <ProfileImg alt="" />
+        <ProfileImg alt='' />
         <Name>박승태</Name>
         <Detail>대학 동기 / 자주 만남</Detail>
       </ProfileWrapper>
@@ -69,10 +70,14 @@ export default function FriendProfile() {
             <EmotionTxt>0개</EmotionTxt>
           </ListItem>
         </ListWrapper>
-        <Button color="#71CACC" onClick={addRecord}>
+        <Button
+          color='#71CACC'
+          onClick={addRecord}
+        >
           기록추가하기
         </Button>
       </Container>
+      <Footer />
     </Wrapper>
   );
 }

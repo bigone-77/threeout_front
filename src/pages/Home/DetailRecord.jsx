@@ -9,6 +9,7 @@ import happy from "../../assets/image/happy.png";
 import sad from "../../assets/image/sad.png";
 import warning from "../../assets/image/warning.png";
 import { AiOutlineLeft } from "react-icons/ai";
+import Footer from "../../components/Footer";
 
 export default function DetailRecord() {
   const [emotion] = useRecoilState(emotionState);
@@ -52,6 +53,7 @@ export default function DetailRecord() {
           25살이 되고 우울한 날 3시간동안 말동무가 되주었다. 들어주기만 해도
           위로가 되었다.
         </Content>
+        <Footer />
       </Wrapper>
     </>
   );

@@ -5,6 +5,7 @@ import axios from "axios";
 import styled from "styled-components";
 import noList from "../../assets/image/noList.png";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const DUMMY_MYPROFILE = {
   profile_img:
@@ -46,26 +47,29 @@ const HomePage = () => {
   };
 
   return (
-    <div className="text-center">
-      <div className="flex items-center w-full gap-2">
+    <div className='text-center'>
+      <div className='flex items-center w-full gap-2'>
         <img
-          className="w-[64px] h-[64px] rounded-full object-fit"
+          className='w-[64px] h-[64px] rounded-full object-fit'
           src={DUMMY_MYPROFILE.profile_img}
-          alt="bueno-img"
+          alt='bueno-img'
         />
-        <div className="flex flex-col gap-2 text-start">
-          <p className="text-lg font-bold">{DUMMY_MYPROFILE.nickname}</p>
-          <p className="px-2 py-1 border border-black rounded-md">
+        <div className='flex flex-col gap-2 text-start'>
+          <p className='text-lg font-bold'>{DUMMY_MYPROFILE.nickname}</p>
+          <p className='px-2 py-1 border border-black rounded-md'>
             {DUMMY_MYPROFILE.promise}
           </p>
         </div>
       </div>
-      <Button color="rgba(113, 202, 204, 1)" onClick={moveToAdd}>
+      <Button
+        color='rgba(113, 202, 204, 1)'
+        onClick={moveToAdd}
+      >
         친구 추가
       </Button>
-      <div className="px-2 my-10">
-        <p className="font-semibold text-gray-300 text-start">친구 목록</p>
-        <div className="my-5" />
+      <div className='px-2 my-10'>
+        <p className='font-semibold text-gray-300 text-start'>친구 목록</p>
+        <div className='my-5' />
         {friendsList.length === 0 ? (
           <NoWrapper>
             <Image />
@@ -79,11 +83,12 @@ const HomePage = () => {
                 nickname={data.nickname}
                 relation={data.relation}
               />
-              <div className="mb-5" />
+              <div className='mb-5' />
             </div>
           ))
         )}
       </div>
+      <Footer />
     </div>
   );
 };

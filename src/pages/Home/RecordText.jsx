@@ -8,6 +8,7 @@ import impressed from "../../assets/image/impressed.png";
 import happy from "../../assets/image/happy.png";
 import sad from "../../assets/image/sad.png";
 import warning from "../../assets/image/warning.png";
+import Footer from "../../components/Footer";
 
 export default function RecordText() {
   const navigate = useNavigate();
@@ -30,9 +31,13 @@ export default function RecordText() {
         <EmotionImg image={warning} />
       ) : null}
       <EmotionDetail />
-      <Button color="#71CACC" onClick={onClickSubmit}>
+      <Button
+        color='#71CACC'
+        onClick={onClickSubmit}
+      >
         완료
       </Button>
+      <Footer />
     </Wrapper>
   );
 }
