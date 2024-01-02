@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "./../../styles/Common";
 import { emotionState } from "../../recoil/atom";
@@ -8,10 +8,30 @@ import happy from "../../assets/image/happy.png";
 import sad from "../../assets/image/sad.png";
 import warning from "../../assets/image/warning.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Footer from "../../components/Footer";
 
 export default function FriendProfile() {
   const navigate = useNavigate();
   const [selectedEmotion, setSelectedEmotion] = useRecoilState(emotionState);
+  const token = localStorage.getItem("token");
+  const [friendProfile, setFriendProfile] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://43.201.170.138:8080/3out/home", {
+        headers: {
+          Authorization: `Bearer ${token}`, // 토큰을 헤더에 추가
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        setFriendProfile(response.result);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   const addRecord = () => {
     navigate("/main/friendProfile/sticker/1");
@@ -26,7 +46,7 @@ export default function FriendProfile() {
   return (
     <Wrapper>
       <ProfileWrapper>
-        <ProfileImg alt="" />
+        <ProfileImg alt='' />
         <Name>박승태</Name>
         <Detail>대학 동기 / 자주 만남</Detail>
       </ProfileWrapper>
@@ -50,10 +70,14 @@ export default function FriendProfile() {
             <EmotionTxt>0개</EmotionTxt>
           </ListItem>
         </ListWrapper>
-        <Button color="#71CACC" onClick={addRecord}>
+        <Button
+          color='#71CACC'
+          onClick={addRecord}
+        >
           기록추가하기
         </Button>
       </Container>
+      <Footer />
     </Wrapper>
   );
 }
