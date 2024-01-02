@@ -20,7 +20,7 @@ export default function Login() {
   };
 
   const goToSign = () => {
-    navigate("/auth/signUp");
+    navigate("/auth/sign");
   };
 
   return (

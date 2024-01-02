@@ -13,7 +13,7 @@ export const Button = styled.button`
   margin-top: ${(props) => props.margintop || "22px"};
 `;
 
-export const Wrapper = styled.form`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

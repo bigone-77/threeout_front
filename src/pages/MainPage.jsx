@@ -7,7 +7,7 @@ export default function MainPage() {
   const navigate = useNavigate();
 
   const goToLogin = () => {
-    navigate("/auth/login");
+    navigate("/auth/signin");
   };
 
   return (

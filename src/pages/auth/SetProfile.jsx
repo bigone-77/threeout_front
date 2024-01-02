@@ -57,11 +57,11 @@ export default function SetProfile() {
       })
       .then(function (response) {
         console.log(response);
+        navigate("/main");
       })
       .catch(function (error) {
         console.log(error);
       });
-    navigate("/main");
   };
 
   return (
