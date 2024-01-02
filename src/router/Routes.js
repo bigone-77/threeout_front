@@ -1,7 +1,7 @@
-import { Route, Routes as ReactRouters } from "react-router-dom";
+import { Route, Routes as ReactRouters } from 'react-router-dom';
+import Layout from '../components/Layout';
+import MainPage from '../pages/MainPage';
 
-import Layout from "../components/Layout";
-import MainPage from "../pages/MainPage";
 
 const Routes = () => {
   return (
